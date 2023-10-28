@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION FORM</title>
+</head>
+
+<body bgcolor="#E6E6FA">
+    <H1 ALIGN="CENTER"><u><b><i>REGISTRATION FORM</i></b></u></H1>
+    <fieldset>
+        <legend>FILL UP CREDENTIALS</legend>
+        <TABLE ALIGN="CENTER" CELLPADDING="16">
+            <TR>
+                <TD>USERNAME :</TD>
+                <TD><INPUT TYPE="TEXT" NAME="NAME" ID="N" placeholder="USERNAME"></TD>
+            </TR>
+            <TR>
+                <TD>EMAIL ID :</TD>
+                <TD><INPUT TYPE="email" NAME="MAIL" ID="E" placeholder="EMAIL"></TD>
+            </TR>
+            <TR>
+                <TD>CREATE PASSWORD :</TD>
+                <TD><INPUT TYPE="password" NAME="PASSWORD" ID="P" placeholder="PASSWORD"></TD>
+            </TR>
+            <TR>
+                <TD>CONFIRM PASSWORD :</TD>
+                <TD><INPUT TYPE="password" NAME="CONPASS" ID="CP" placeholder="CONFIRM PASSWORD"></TD>
+            </TR>
+
+        </TABLE>
+        <CENTER><INPUT TYPE="submit" VALUE="SUBMIT"  onclick="create_account()"></CENTER>
+
+    </fieldset>
+
+    <script type="text/javascript">
+        function create_account() {
+            var n = document.getElementById("N").value;
+            var e = document.getElementById("E").value;
+            var p = document.getElementById("P").value;
+            var cp = document.getElementById("CP").value;
+
+            // var letters = /^[A-Za-z]$/;
+            var email =  /^\S+@\S+\.\S+$/;
+            if (n == '' || e == '' || p == '' || cp == '') {
+                alert("Fill up all the credentials");
+            }
+            else if (p != cp) {
+                alert("Enter matching password");
+            }
+            // else if (!letters.value(n)) {
+            //     alert("Enter valid user name");
+            // }
+            else if (!email.test(e)) {
+                alert("Enter proper email");
+            }
+            else if (n.length > 16) {
+                alert("username cannot be more than 16 characters");
+            }
+            else if (n.length < 7) {
+                alert("username should be more than 7 characters");
+            }
+            else {
+                alert("Account created successfully");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

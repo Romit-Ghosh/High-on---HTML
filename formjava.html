@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <title>File</title>
+</head>
+
+<body align="center" bgcolor="#E6E6FA">
+    <h1>INPUT DETAILS TO CREATE ACCOUNT</h1>
+    <table align="center">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" placeholder="Enter name" id="n1"></td>
+        </tr>
+        <tr>
+            <td>Gmail</td>
+            <td><input type="email" placeholder="Enter Gmail" id="g1"></td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td><input type="password" placeholder="Enter Password" id="p1"></td>
+        </tr>
+        <tr>
+            <td>Confirm Password</td>
+            <td><input type="password" placeholder="Enter Confirm password" id="cp1"></td>
+        </tr>
+    </table>
+    <input type="button" value="Create" onclick="create_account()" />
+    </table>
+    <script type="text/javascript">
+        function create_account() {
+            var n = document.getElementById("n1").value;
+            // var g = document.getElementById("g1").value;
+            var p = document.getElementById("p1").value;
+            var cp = document.getElementById("cp1").value;
+
+            var letters = /^[A-Za-z]{1-17}$/;
+            var Gmail_input = /^[A-Za-z]{1-17}@[A-za-z]{1-3}$/;
+
+            if (n == '' || g == '' || p == '' || cp == '') {
+                alert("Enter all the details");
+            }
+            else if (p != cp) {
+                alert("Passwords doesn't match");
+            }
+            else if (!letters.value(n)) {
+                alert("Name should only contain alphabet");
+            }
+            // else if (!Gmail_input.value(g)) {
+            //     alert("Enter the gmail correctly");
+            // }
+            else if (document.getElementById("p1").value.length > 12) {
+                alert("password should contain less than 12 letters");
+            }
+            else if (document.getElementById("p1").value.length < 6) {
+                alert("password should contain more than 6 letters");
+            }
+            else {
+                alert("Account created sucessfully...")
+            }
+        }    
+    </script>
+</body>
+
+</html>
